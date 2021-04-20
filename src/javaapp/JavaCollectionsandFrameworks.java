@@ -58,6 +58,29 @@ public class JavaCollectionsandFrameworks {
 
         System.out.println("\t' 3.MOVING MINIMUM VALUE OF LIST TO THE FRONT '");
 
+        List<Integer> arraylist = new ArrayList<Integer>();
+        arraylist.add(3);
+        arraylist.add(8);
+        arraylist.add(23);
+        arraylist.add(91);
+        arraylist.add(6);
+        arraylist.add(1);
+
+        int min = arraylist.get(0);
+        for (int ndx = 1; ndx < arraylist.size(); ndx++) {
+            if (arraylist.get(ndx) < min) {
+                min = arraylist.get(ndx);
+            }
+        }
+
+        System.out.println("Unmoved Array list: " + arraylist);
+
+        int position = arraylist.indexOf(min);
+        arraylist.remove(position);
+        arraylist.add(0, min);
+
+        System.out.println("Moved Minimum Value list:   " + arraylist);
+
         System.out.println("\n    ---------------------------------------------\n");
     }
 
@@ -182,9 +205,8 @@ public class JavaCollectionsandFrameworks {
         System.out.println("\t' 8.COUNT NUMBER KEYS IN A MAP '");
 
         Map<String, String> keymap = new HashMap<String, String>();
-        keymap.put("concordia", "Value given");
-        keymap.put("acconcordia", "Test");
-        keymap.put("condensada", "Sweet");
+        keymap.put("concordia", "Value given", "acconcordia", "Test", "condensada", "Sweet");
+        System.out.println(keymap.get(1));
         System.out.println("Number of keys in a map: " + keymap.size());
 
         System.out.println("\n    ---------------------------------------------\n");
