@@ -6,22 +6,24 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class JavaCollectionsandFrameworks {
 
     public static void main(String[] args) {
-        number1();
-        number2();
-        number3();
-        number4();
-        number5();
-        number6();
-        number7();
-        number8();
+        sortArrayList();
+        randomArrayList();
+        moveMinValtoFront();
+        isEmptyOversize();
+        forLoopVsforeach();
+        commonVal();
+        uniqueVal();
+        countStartKeys();
     }
 
-    public static void number1() {
+    public static void sortArrayList() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("Aestherielle");
         nameList.add("Reniella");
@@ -39,7 +41,7 @@ public class JavaCollectionsandFrameworks {
         System.out.println("\n    ---------------------------------------------\n");
     }
 
-    public static void number2() {
+    public static void randomArrayList() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("Zamiel");
         nameList.add("Josiah");
@@ -47,14 +49,14 @@ public class JavaCollectionsandFrameworks {
         nameList.add("Elijah");
         nameList.add("Vincent");
 
-        System.out.println("\t' 2.RANDOM ARRAY SORTING '");
+        System.out.println("\t' 2.RANDOMLY ARRANGE ARRAY LIST '");
         Collections.shuffle(nameList);
         System.out.println("Random Sorted Array: \n\t" + nameList);
 
         System.out.println("\n    ---------------------------------------------\n");
     }
 
-    public static void number3() {
+    public static void moveMinValtoFront() {
 
         System.out.println("\t' 3.MOVING MINIMUM VALUE OF LIST TO THE FRONT '");
 
@@ -84,7 +86,7 @@ public class JavaCollectionsandFrameworks {
         System.out.println("\n    ---------------------------------------------\n");
     }
 
-    public static void number4() {
+    public static void isEmptyOversize() {
 
         System.out.println("\t' 4.isEmpty() VS size '");
 
@@ -95,7 +97,7 @@ public class JavaCollectionsandFrameworks {
         System.out.println("\n    ---------------------------------------------\n");
     }
 
-    public static void number5() {
+    public static void forLoopVsforeach() {
 
         System.out.println("\t' 5.COMPARE AND CONTRAST CLASSIC for loop VS foreach '");
         System.out.println("COMPARISON:\n"
@@ -142,7 +144,7 @@ public class JavaCollectionsandFrameworks {
         System.out.println("\n    ---------------------------------------------\n");
     }
 
-    public static void number6() {
+    public static void commonVal() {
         System.out.println("\t' 6.COMPARE AND RETURN COMMON VALUES OF 2 SETS '");
 
         Set<String> arr_set1 = new HashSet<String>();
@@ -170,7 +172,7 @@ public class JavaCollectionsandFrameworks {
         System.out.println("\n    ---------------------------------------------\n");
     }
 
-    public static void number7() {
+    public static void uniqueVal() {
         System.out.println("\t' 7.COMPARE AND RETURN UNIQUE VALUES BETWEEN 2 SETS '");
 
         Set<Integer> arr_set1 = new HashSet<Integer>();
@@ -201,15 +203,23 @@ public class JavaCollectionsandFrameworks {
         System.out.println("\n    ---------------------------------------------\n");
     }
 
-    public static void number8() {
+    public static void countStartKeys() {
         System.out.println("\t' 8.COUNT NUMBER KEYS IN A MAP '");
 
         Map<String, String> keymap = new HashMap<String, String>();
-        keymap.put("concordia", "Value given", "acconcordia", "Test", "condensada", "Sweet");
-        System.out.println(keymap.get(1));
-        System.out.println("Number of keys in a map: " + keymap.size());
+        keymap.put("concordia ", " Value given");
+        keymap.put("acconcordia ", " Test");
+        keymap.put("condensada ", " Sweet");
+        System.out.println("Array List in a Map: " + keymap);;
+        System.out.println("Number of Keys in a Map: " + keymap.size());
 
-        System.out.println("\n    ---------------------------------------------\n");
+        Map<String, String> Strkey = new HashMap<String, String>();
+
+        for (Entry<String, String> map : keymap.entrySet()) {
+            if (map.getKey().startsWith("concordia")) {
+                Strkey.put(map.getKey(), map.getValue());
+            }
+        }
+        System.out.println("Number of Keys that Starts with 'concordia': " + Strkey.size());
     }
-
 }
